@@ -1,16 +1,16 @@
-Source: rc-gui
+Source: pprompt
 Section: admin
 Priority: optional
-Maintainer: Serge Schneider <serge@raspberrypi.org>
-Build-Depends: debhelper (>= 9), dh-autoreconf, libglib2.0-dev, libgtk2.0-dev,
+Maintainer: Simon Long <simon@raspberrypi.org>
+Build-Depends: debhelper (>= 9), autotools-dev, libglib2.0-dev, libgtk2.0-dev,
  libx11-dev, intltool
-Standards-Version: 3.9.6
-Homepage: https://github.com/RPi-Distro/rc_gui
-Vcs-Git: git://git@github.com:RPi-Distro/rc_gui.git
-Vcs-Browser: https://github.com/RPi-Distro/rc_gui
+Standards-Version: 3.9.5
+Homepage: http://raspberrypi.org/
 
-Package: rc-gui
+Package: pprompt
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, raspi-config, lxkeymap
-Description: raspi-config GUI
- Application which allows the configuration of Raspberry Pi system settings
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Password change prompt
+ This application is intended to be run at first boot of Raspbian
+ to both prompt the user to change the default password and to give
+ them an easy way to do so.
