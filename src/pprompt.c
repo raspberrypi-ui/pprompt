@@ -1,4 +1,3 @@
-
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -19,13 +18,7 @@
 
 #include <libintl.h>
 
-/* Command strings */
-#define CHANGE_PASSWD   "echo pi:%s | sudo chpasswd"
-
-/* Controls */
 GtkWidget *dlg, *pwentry1_tb, *pwentry2_tb, *pwok_btn, *pwcancel_btn;
-
-/* Password setting */
 
 static void set_passwd (GtkEntry *entry, gpointer ptr)
 {
@@ -35,6 +28,39 @@ static void set_passwd (GtkEntry *entry, gpointer ptr)
         gtk_widget_set_sensitive (GTK_WIDGET (pwok_btn), TRUE);
 }
 
+static void change_pass (GtkButton *btn, gpointer ptr)
+{
+    char buffer[128];
+    GtkWidget *msg, *lbl;
+    int res;
+
+    sprintf (buffer, "(echo \"raspberry\" ; echo \"%s\" ; echo \"%s\") | passwd", 
+        gtk_entry_get_text (GTK_ENTRY (pwentry1_tb)), gtk_entry_get_text (GTK_ENTRY (pwentry2_tb)));
+    res = system (buffer);
+    if (!res)
+    {
+        msg = gtk_dialog_new_with_buttons (_("Password Changed"), GTK_WINDOW (dlg), GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+            GTK_STOCK_OK, GTK_RESPONSE_OK, NULL);
+        lbl = gtk_label_new (_("The password has been changed."));
+    }
+    else
+    {
+        msg = gtk_dialog_new_with_buttons (_("Password Not Changed"), GTK_WINDOW (dlg), GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+            GTK_STOCK_OK, GTK_RESPONSE_OK, NULL);
+        lbl = gtk_label_new (_("The password you selected is insufficiently secure - please try again."));
+    }
+
+    gtk_window_set_icon_name (GTK_WINDOW (msg), "dialog-warning");
+    gtk_label_set_line_wrap (GTK_LABEL (lbl), TRUE);
+    gtk_label_set_justify (GTK_LABEL (lbl), GTK_JUSTIFY_CENTER);
+    gtk_label_set_width_chars (GTK_LABEL (lbl), 40);
+    gtk_box_pack_start (GTK_BOX (GTK_DIALOG (msg)->vbox), lbl, TRUE, TRUE, 10);
+    gtk_widget_show_all (msg);
+    gtk_dialog_run (GTK_DIALOG (msg));
+    gtk_widget_destroy (msg);
+
+    if (!res) gtk_dialog_response (GTK_DIALOG (dlg), GTK_RESPONSE_OK);
+}
 
 /* The dialog... */
 
@@ -42,7 +68,7 @@ int main (int argc, char *argv[])
 {
     GtkWidget *hbox1, *hbox2, *hbox3;
     GtkWidget *lbl1, *lbl2, *lbl3;
-    char buffer[128];
+    gchar inv[3] = { 0xE2, 0x97, 0x8F };
 
 #ifdef ENABLE_NLS
     setlocale (LC_ALL, "");
@@ -63,7 +89,7 @@ int main (int argc, char *argv[])
     gtk_window_set_resizable (GTK_WINDOW (dlg), FALSE);
     gtk_window_set_icon_name (GTK_WINDOW (dlg), "dialog-warning");
 
-	// create the message label
+    // create the message label
     hbox1 = gtk_hbox_new (TRUE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (hbox1), 10);
     lbl1 = gtk_label_new (_("The default password for the 'pi' user is 'raspberry'.\nWe recommend you change this - enter your new password below."));
@@ -78,12 +104,14 @@ int main (int argc, char *argv[])
     lbl2 = gtk_label_new (_("Enter new password:"));
     gtk_misc_set_alignment (GTK_MISC (lbl2), 0, 0.5);
     gtk_box_pack_start (GTK_BOX (hbox2), lbl2, TRUE, TRUE, 0);
-	pwentry1_tb = gtk_entry_new ();
+    pwentry1_tb = gtk_entry_new ();
     g_signal_connect (pwentry1_tb, "changed", G_CALLBACK (set_passwd), NULL);
     gtk_box_pack_start (GTK_BOX (hbox2), pwentry1_tb, TRUE, TRUE, 5);
     gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dlg)->vbox), hbox2, TRUE, TRUE, 0);
+    gtk_entry_set_visibility (GTK_ENTRY (pwentry1_tb), FALSE);
+    gtk_entry_set_invisible_char (GTK_ENTRY (pwentry1_tb), g_utf8_get_char (inv));
 
-	// create the second text entry
+    // create the second text entry
     hbox3 = gtk_hbox_new (TRUE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (hbox3), 10);
     lbl3 = gtk_label_new (_("Confirm new password:"));
@@ -93,23 +121,24 @@ int main (int argc, char *argv[])
     g_signal_connect (pwentry2_tb, "changed", G_CALLBACK (set_passwd), NULL);
     gtk_box_pack_start (GTK_BOX (hbox3), pwentry2_tb, TRUE, TRUE, 5);
     gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dlg)->vbox), hbox3, TRUE, TRUE, 0);
+    gtk_entry_set_visibility (GTK_ENTRY (pwentry2_tb), FALSE);
+    gtk_entry_set_invisible_char (GTK_ENTRY (pwentry2_tb), g_utf8_get_char (inv));
 
-	// create the buttons
-	pwcancel_btn = gtk_dialog_add_button (GTK_DIALOG (dlg), GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL);
-	pwok_btn = gtk_dialog_add_button (GTK_DIALOG (dlg), GTK_STOCK_OK, GTK_RESPONSE_OK);
+    // create the buttons
+    pwcancel_btn = gtk_dialog_add_button (GTK_DIALOG (dlg), GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL);
+    pwok_btn = gtk_button_new_from_stock (GTK_STOCK_OK);
+    gtk_box_pack_start (GTK_BOX (gtk_dialog_get_action_area (GTK_DIALOG (dlg))), pwok_btn, TRUE, TRUE, 0);
+    g_signal_connect (GTK_WIDGET (pwok_btn), "clicked", G_CALLBACK (change_pass), NULL);
     gtk_widget_set_sensitive (GTK_WIDGET (pwok_btn), FALSE);
-    
+
     // run the dialog
     gtk_widget_show_all (dlg);
-    if (gtk_dialog_run (GTK_DIALOG (dlg)) == GTK_RESPONSE_OK)
-    {
-        sprintf (buffer, CHANGE_PASSWD, gtk_entry_get_text (GTK_ENTRY (pwentry1_tb)));
-        printf ("system this %s\n", buffer);
-        //system (buffer);
-    }
+    gtk_dialog_run (GTK_DIALOG (dlg));
     gtk_widget_destroy (dlg);
     gdk_threads_leave ();
-    printf ("update autostart\n");
+
+    // remove the autostart
+    system ("sed /home/pi/.config/lxsession/LXDE-pi/autostart -i -e \"s/^@pprompt.*$//\"");
 
     return 0;
 }

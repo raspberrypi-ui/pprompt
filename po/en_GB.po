@@ -1,0 +1,54 @@
+# English translations for pprompt package.
+# Copyright (C) 2016 Raspberry Pi
+# This file is distributed under the same license as the pprompt package.
+# Simon Long <simon@raspberrypi.org>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pprompt 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-24 17:02+0100\n"
+"PO-Revision-Date: 2016-10-24 17:06+0100\n"
+"Last-Translator: Simon Long <simon@raspberrypi.org>\n"
+"Language-Team: English (British)\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../src/pprompt.c:42
+msgid "Password Changed"
+msgstr "Password Changed"
+
+#: ../src/pprompt.c:44
+msgid "The password has been changed."
+msgstr "The password has been changed."
+
+#: ../src/pprompt.c:48
+msgid "Password Not Changed"
+msgstr "Password Not Changed"
+
+#: ../src/pprompt.c:50
+msgid "The password you selected is insufficiently secure - please try again."
+msgstr "The password you selected is insufficiently secure - please try again."
+
+#: ../src/pprompt.c:88
+msgid "Change Password"
+msgstr "Change Password"
+
+#: ../src/pprompt.c:95
+msgid ""
+"The default password for the 'pi' user is 'raspberry'.\n"
+"We recommend you change this - enter your new password below."
+msgstr ""
+"The default password for the 'pi' user is 'raspberry'.\n"
+"We recommend you change this - enter your new password below."
+
+#: ../src/pprompt.c:104
+msgid "Enter new password:"
+msgstr "Enter new password:"
+
+#: ../src/pprompt.c:117
+msgid "Confirm new password:"
+msgstr "Confirm new password:"
