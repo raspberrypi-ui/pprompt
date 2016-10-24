@@ -19,7 +19,7 @@ set -e
 
 case "$1" in
     remove|upgrade|deconfigure)
-        sed /home/pi/.config/lxsession/LXDE-pi/autostart -i -e "s/^@pprompt.*$//"
+        sed /home/pi/.config/lxsession/LXDE-pi/autostart -i -e "/@pprompt.*$/d"
     ;;
 
     failed-upgrade)

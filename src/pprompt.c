@@ -138,7 +138,7 @@ int main (int argc, char *argv[])
     gdk_threads_leave ();
 
     // remove the autostart
-    system ("sed /home/pi/.config/lxsession/LXDE-pi/autostart -i -e \"s/^@pprompt.*$//\"");
+    system ("sed /home/pi/.config/lxsession/LXDE-pi/autostart -i -e \"/@pprompt.*$/d\"");
 
     return 0;
 }
