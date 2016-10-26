@@ -20,7 +20,15 @@ set -e
 
 case "$1" in
     configure)
-        printf "@pprompt\n" >> /home/pi/.config/lxsession/LXDE-pi/autostart
+        mkdir -p /home/pi/.config/autostart
+        cat << EOF >> /home/pi/.config/autostart/pprompt.desktop
+[Desktop Entry]
+Exec=sh -c 'pprompt && rm ~/.config/autostart/pprompt.desktop'
+Type=Application
+EOF
+        chown pi:pi /home/pi/.config
+        chown pi:pi /home/pi/.config/autostart
+        chown pi:pi /home/pi/.config/autostart/pprompt.desktop
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
