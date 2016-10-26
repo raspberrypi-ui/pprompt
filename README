@@ -1,3 +1,3 @@
-This is an application which allows the configuration of Raspberry Pi system settings..
+This is an application which prompts the user to change the default password on first boot.
 
 To build, run autogen.sh, then ./configure and make.
