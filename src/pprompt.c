@@ -68,7 +68,6 @@ int main (int argc, char *argv[])
 {
     GtkWidget *hbox1, *hbox2, *hbox3;
     GtkWidget *lbl1, *lbl2, *lbl3;
-    gchar inv[3] = { 0xE2, 0x97, 0x8F };
 
 #ifdef ENABLE_NLS
     setlocale (LC_ALL, "");
@@ -109,7 +108,6 @@ int main (int argc, char *argv[])
     gtk_box_pack_start (GTK_BOX (hbox2), pwentry1_tb, TRUE, TRUE, 5);
     gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dlg)->vbox), hbox2, TRUE, TRUE, 0);
     gtk_entry_set_visibility (GTK_ENTRY (pwentry1_tb), FALSE);
-    gtk_entry_set_invisible_char (GTK_ENTRY (pwentry1_tb), g_utf8_get_char (inv));
 
     // create the second text entry
     hbox3 = gtk_hbox_new (TRUE, 0);
@@ -122,7 +120,6 @@ int main (int argc, char *argv[])
     gtk_box_pack_start (GTK_BOX (hbox3), pwentry2_tb, TRUE, TRUE, 5);
     gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dlg)->vbox), hbox3, TRUE, TRUE, 0);
     gtk_entry_set_visibility (GTK_ENTRY (pwentry2_tb), FALSE);
-    gtk_entry_set_invisible_char (GTK_ENTRY (pwentry2_tb), g_utf8_get_char (inv));
 
     // create the buttons
     pwcancel_btn = gtk_dialog_add_button (GTK_DIALOG (dlg), GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL);

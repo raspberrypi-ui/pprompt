@@ -20,15 +20,20 @@ set -e
 
 case "$1" in
     configure)
-        mkdir -p /home/pi/.config/autostart
-        cat << EOF >> /home/pi/.config/autostart/pprompt.desktop
+		if id -u pi && [ -d /home/pi/ ]; then
+			if ! [ -d /home/pi/.config/ ]; then
+				install --directory --mode=700 --owner=pi /home/pi/.config
+			fi
+			if ! [ -d /home/pi/.config/autostart/ ]; then
+				install --directory --mode=755 --owner=pi /home/pi/.config/autostart
+			fi
+			cat << EOF >> /home/pi/.config/autostart/pprompt.desktop
 [Desktop Entry]
-Exec=sh -c 'pprompt && rm ~/.config/autostart/pprompt.desktop'
+Exec=sh -c 'if ! mountpoint -q /lib/live/mount/medium || mountpoint -q /lib/live/mount/persistence; then pprompt; fi; rm ~/.config/autostart/pprompt.desktop'
 Type=Application
 EOF
-        chown pi:pi /home/pi/.config
-        chown pi:pi /home/pi/.config/autostart
-        chown pi:pi /home/pi/.config/autostart/pprompt.desktop
+			chown pi:pi /home/pi/.config/autostart/pprompt.desktop
+        fi
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

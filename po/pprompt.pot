@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-26 11:32+0100\n"
+"POT-Creation-Date: 2016-11-08 14:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,20 +33,20 @@ msgstr ""
 msgid "The password you selected is insufficiently secure - please try again."
 msgstr ""
 
-#: ../src/pprompt.c:88
+#: ../src/pprompt.c:87
 msgid "Change Password"
 msgstr ""
 
-#: ../src/pprompt.c:95
+#: ../src/pprompt.c:94
 msgid ""
 "The default password for the 'pi' user is 'raspberry'.\n"
 "We recommend you change this - enter your new password below."
 msgstr ""
 
-#: ../src/pprompt.c:104
+#: ../src/pprompt.c:103
 msgid "Enter new password:"
 msgstr ""
 
-#: ../src/pprompt.c:117
+#: ../src/pprompt.c:115
 msgid "Confirm new password:"
 msgstr ""

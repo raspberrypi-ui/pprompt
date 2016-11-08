@@ -1,3 +1,9 @@
+pprompt (0.2) jessie; urgency=medium
+
+  * Change masking character in text entry; update desktop file
+
+ -- Simon Long <simon@raspberrypi.org>  Tue, 08 Nov 2016 14:52:56 +0000
+
 pprompt (0.1) jessie; urgency=low
 
   * Initial release
