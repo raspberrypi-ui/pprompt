@@ -29,7 +29,7 @@ case "$1" in
 			fi
 			cat << EOF >> /home/pi/.config/autostart/pprompt.desktop
 [Desktop Entry]
-Exec=sh -c 'if ! mountpoint -q /lib/live/mount/medium || ! mountpoint -q /lib/live/mount/persistence; then pprompt; fi; rm ~/.config/autostart/pprompt.desktop'
+Exec=sh -c 'if ! mountpoint -q /lib/live/mount/medium || mountpoint -q /lib/live/mount/persistence; then pprompt; fi; rm ~/.config/autostart/pprompt.desktop'
 Type=Application
 EOF
 			chown pi:pi /home/pi/.config/autostart/pprompt.desktop
