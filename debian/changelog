@@ -1,3 +1,9 @@
+pprompt (0.4) jessie; urgency=medium
+
+  * Use cpuinfo and existence of persistence.conf file to detect live images
+
+ -- Simon Long <simon@raspberrypi.org>  Thu, 10 Nov 2016 18:38:19 +0000
+
 pprompt (0.3) jessie; urgency=medium
 
   * Fix bug in persistence detection on live images
