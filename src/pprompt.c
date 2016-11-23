@@ -91,7 +91,7 @@ int main (int argc, char *argv[])
     // create the message label
     hbox1 = gtk_hbox_new (TRUE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (hbox1), 10);
-    lbl1 = gtk_label_new (_("The default password for the 'pi' user is 'raspberry'.\nWe recommend you change this - enter your new password below."));
+    lbl1 = gtk_label_new (_("SSH is enabled and the default password is unchanged.\nThis is a security risk - please enter a new password below."));
     gtk_label_set_line_wrap (GTK_LABEL (lbl1), TRUE);
     gtk_label_set_justify (GTK_LABEL (lbl1), GTK_JUSTIFY_LEFT);
     gtk_box_pack_start (GTK_BOX (hbox1), lbl1, TRUE, TRUE, 0);

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-10 18:44+0000\n"
+"POT-Creation-Date: 2016-11-23 11:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,8 +39,8 @@ msgstr ""
 
 #: ../src/pprompt.c:94
 msgid ""
-"The default password for the 'pi' user is 'raspberry'.\n"
-"We recommend you change this - enter your new password below."
+"SSH is enabled and the default password is unchanged.\n"
+"This is a security risk - please enter a new password below."
 msgstr ""
 
 #: ../src/pprompt.c:103

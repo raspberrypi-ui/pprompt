@@ -16,6 +16,12 @@ include /usr/share/dpkg/default.mk
 # package maintainers to append LDFLAGS
 #export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 
+override_dh_install:
+	mkdir -p debian/pprompt/etc/xdg/lxsession/LXDE-pi/
+	mkdir -p debian/pprompt/etc/xdg/autostart/
+	cp -ax sshpwd.sh debian/pprompt/etc/xdg/lxsession/LXDE-pi/
+	cp -ax pprompt.desktop debian/pprompt/etc/xdg/autostart/
+	dh_install
 
 # main packaging script based on dh7 syntax
 %:
