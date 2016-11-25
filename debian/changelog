@@ -1,3 +1,9 @@
+pprompt (0.7) jessie; urgency=medium
+
+  * Modify check for default password to reduce logging
+
+ -- Simon Long <simon@raspberrypi.org>  Fri, 25 Nov 2016 12:44:54 +0000
+
 pprompt (0.6) jessie; urgency=medium
 
   * Remove option to change password - use Zenity for warning
