@@ -2,6 +2,7 @@
 
 check_hash ()
 {
+   if grep -q "^PasswordAuthentication\s*no" /etc/ssh/sshd_config ; then return 0 ; fi
    test -x /usr/bin/mkpasswd || return 0
    local SHADOW="$(sudo -n grep -E '^pi:' /etc/shadow 2>/dev/null)"
    test -n "${SHADOW}" || return 0
@@ -15,5 +16,7 @@ check_hash ()
    fi
 }
 
-check_hash
-unset check_hash
+if service ssh status | grep -q running; then
+	check_hash
+	unset check_hash
+fi
