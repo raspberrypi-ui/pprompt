@@ -11,7 +11,7 @@ check_hash ()
    local HASH=$(mkpasswd -msha-512 raspberry "$SALT")
    test -n "${HASH}" || return 0
 
-   if systemctl is-active ssh -q && echo "${SHADOW}" | grep -q "${HASH}"; then
+   if echo "${SHADOW}" | grep -q "${HASH}"; then
 	zenity --warning --text="SSH is enabled and the default password for the 'pi' user has not been changed.\nThis is a security risk - please login as the 'pi' user and run Raspberry Pi Configuration to set a new password."
    fi
 }
