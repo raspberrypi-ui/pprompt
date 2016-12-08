@@ -1,3 +1,9 @@
+pprompt (0.8) jessie; urgency=medium
+
+  * Explicit check for existence of pi user at start
+
+ -- Simon Long <simon@raspberrypi.org>  Thu, 08 Dec 2016 10:33:59 +0000
+
 pprompt (0.7) jessie; urgency=medium
 
   * Modify check for default password to reduce logging
