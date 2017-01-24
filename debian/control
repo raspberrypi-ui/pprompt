@@ -8,7 +8,7 @@ Homepage: http://raspberrypi.org/
 
 Package: pprompt
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, whois
+Depends: ${shlibs:Depends}, ${misc:Depends}, libpam-chksshpwd
 Description: ssh password check
  Runs at desktop launch; checks if ssh is enabled and 
  the default password for the pi user is unchanged - if so
