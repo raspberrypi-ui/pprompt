@@ -1,3 +1,10 @@
+pprompt (0.10) jessie; urgency=medium
+
+  * Use global warning flag file to determine if warning is needed
+  * Add i18n support
+
+ -- Simon Long <simon@raspberrypi.org>  Tue, 24 Jan 2017 10:57:21 +0000
+
 pprompt (0.9) jessie; urgency=medium
 
   * Explicit check for existence of pi user at start
