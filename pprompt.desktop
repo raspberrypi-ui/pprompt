@@ -3,5 +3,5 @@ Type=Application
 Name=pprompt
 Comment=Prompt to change default password if ssh enabled
 NoDisplay=true
-Exec=sh /etc/xdg/lxsession/LXDE-pi/sshpwd.sh
+Exec=python3 /etc/xdg/lxsession/LXDE-pi/sshpwd.py
 NotShowIn=GNOME;KDE;XFCE;

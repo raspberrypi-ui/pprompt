@@ -1,2 +1,2 @@
-sshpwd.sh etc/xdg/lxsession/LXDE-pi/
+sshpwd.py etc/xdg/lxsession/LXDE-pi/
 pprompt.desktop etc/xdg/autostart/
