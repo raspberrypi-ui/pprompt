@@ -5,7 +5,7 @@ ACLOCAL_AMFLAGS= -I m4
 SUBDIRS = po
 
 EXTRA_DIST = \
-        sshpwd.sh \
+        sshpwd.py \
         pprompt.desktop
 
 install-data-local:
