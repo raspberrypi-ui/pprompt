@@ -1,0 +1,24 @@
+# English translations for pprompt package.
+# Copyright (C) 2017 Raspberry Pi
+# This file is distributed under the same license as the pprompt package.
+# Emanuele Goldoni <emanuele.goldoni@gmail.com>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-24 12:03+0000\n"
+"PO-Revision-Date: 2020-04-26 15:31+0200\n"
+"Last-Translator: Emanuele Goldoni <emanuele.goldoni@gmail.com>\n"
+"Language-Team: Italian\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.2.4\n"
+
+#: ../sshpwd.sh:8
+msgid "SSH is enabled and the default password for the 'pi' user has not been changed.\\n\\nThis is a security risk - please login as the 'pi' user and run Raspberry Pi Configuration to set a new password."
+msgstr "SSH è abilitato e la password predefinita per l'utente 'pi' non è stata cambiata.\\n\\nQuesto è un rischio per la sicurezza - entra come utente 'pi' e avvia Raspberry Pi Configuration per impostare una nuova password."
+
