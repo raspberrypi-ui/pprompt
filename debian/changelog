@@ -1,3 +1,9 @@
+pprompt (0.14) buster; urgency=medium
+
+  * Italian translation updated
+
+ -- Simon Long <simon@raspberrypi.com>  Tue, 28 Apr 2020 10:11:57 +0100
+
 pprompt (0.13) stretch; urgency=medium
 
   * Reduce width of warning dialog
