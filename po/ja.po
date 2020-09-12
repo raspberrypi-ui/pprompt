@@ -1,0 +1,28 @@
+# English translations for pprompt package.
+# Copyright (C) 2020 Raspberry Pi
+# This file is distributed under the same license as the pprompt package.
+# Akira Ouchi <akkiesoft@marokun.net>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-12 23:41+0900\n"
+"PO-Revision-Date: 2017-01-24 10:54+0000\n"
+"Last-Translator: Akira Ouchi <akkiesoft@marokun.net>\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../sshpwd.sh:8
+msgid ""
+"SSH is enabled and the default password for the 'pi' user has not been "
+"changed.\\n\\nThis is a security risk - please login as the 'pi' user and "
+"run Raspberry Pi Configuration to set a new password."
+msgstr ""
+"'pi' ユーザーのパスワードがデフォルトのままSSHが有効化されています。\\n\\nこ"
+"れにはセキュリティリスクがあります。 'pi' ユーザーでログインしてRaspberry "
+"Piの設定を開き、新しいパスワードを設定してください。"
