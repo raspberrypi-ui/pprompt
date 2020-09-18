@@ -1,3 +1,9 @@
+pprompt (0.17) buster; urgency=medium
+
+  * Japanese translation added
+
+ -- Simon Long <simon@raspberrypi.com>  Fri, 18 Sep 2020 10:12:37 +0100
+
 pprompt (0.16) buster; urgency=medium
 
   * Localisation bug fixed
