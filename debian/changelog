@@ -1,3 +1,9 @@
+pprompt (0.19) buster; urgency=medium
+
+  * Added Armenian translation
+
+ -- Simon Long <simon@raspberrypi.com>  Wed, 24 Feb 2021 14:04:07 +0000
+
 pprompt (0.18) buster; urgency=medium
 
   * Added Slovak translation
