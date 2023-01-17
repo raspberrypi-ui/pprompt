@@ -1,3 +1,9 @@
+pprompt (0.20) bullseye; urgency=medium
+
+  * Remove executable bit from desktop file
+
+ -- Simon Long <simon@raspberrypi.com>  Tue, 17 Jan 2023 09:03:41 +0000
+
 pprompt (0.19) buster; urgency=medium
 
   * Added Armenian translation
