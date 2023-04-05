@@ -1,3 +1,9 @@
+pprompt (0.21) bookworm; urgency=medium
+
+  * Added Korean translation
+
+ -- Simon Long <simon@raspberrypi.com>  Wed, 05 Apr 2023 11:53:16 +0100
+
 pprompt (0.20) bullseye; urgency=medium
 
   * Remove executable bit from desktop file
