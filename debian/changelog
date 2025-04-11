@@ -1,3 +1,9 @@
+pprompt (0.23) bookworm; urgency=medium
+
+  * Change to use zenoty; convert to meson project
+
+ -- Simon Long <simon@raspberrypi.com>  Fri, 11 Apr 2025 09:53:40 +0100
+
 pprompt (0.22) bookworm; urgency=medium
 
   * Translation update

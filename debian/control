@@ -1,14 +1,14 @@
 Source: pprompt
 Section: admin
 Priority: optional
-Maintainer: Simon Long <simon@raspberrypi.org>
-Build-Depends: debhelper (>= 9)
-Standards-Version: 3.9.5
-Homepage: http://raspberrypi.org/
+Maintainer: Simon Long <simon@raspberrypi.com>
+Build-Depends: debhelper-compat (= 13), meson, intltool (>= 0.40.0)
+Standards-Version: 4.5.1
+Homepage: http://raspberrypi.com/
 
 Package: pprompt
-Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, libpam-chksshpwd
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libpam-chksshpwd, zenoty
 Description: ssh password check
  Runs at desktop launch; checks if ssh is enabled and 
  the default password for the pi user is unchanged - if so
